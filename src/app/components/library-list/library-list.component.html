@@ -1,0 +1,111 @@
+<div class="main-table">
+  <mat-form-field>
+    <mat-label>Search</mat-label>
+    <input matInput (keyup)="applyFilter($event)" #input />
+  </mat-form-field>
+
+  <div class="mat-elevation-z8 example-container">
+    <mat-table [dataSource]="dataSource" matSort #table>
+      <ng-container matColumnDef="sno">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>ID</mat-header-cell>
+        <mat-cell *matCellDef="let row; let i = index">
+          <span class="mobile-label">ID:</span> {{ row.id }}
+        </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="title">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>
+          Title
+        </mat-header-cell>
+        <mat-cell *matCellDef="let row">
+          <span class="mobile-label">Title:</span>{{ row.title }}
+        </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="author">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>
+          Author Name
+        </mat-header-cell>
+        <mat-cell *matCellDef="let row"
+          ><span class="mobile-label">Author Name:</span> {{ row.author }}
+        </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="action">
+        <mat-header-cell *matHeaderCellDef mat-sort-header
+          >Actions</mat-header-cell
+        >
+        <mat-cell *matCellDef="let row">
+          <button
+            mat-button
+            mat-icon-button
+            aria-label="Edit"
+            (click)="editLibrary(row)"
+            class="actions"
+          >
+            <mat-icon>create</mat-icon>
+          </button>
+          <button
+            mat-button
+            aria-label="Edit"
+            (click)="editLibrary(row)"
+            class="actions mobile-actions"
+          >
+            Edit
+          </button>
+          <button
+            mat-button
+            mat-icon-button
+            aria-label="Delete"
+            [disabled]="row.isDeleting"
+            class="actions"
+            (click)="deleteLibrary(row)"
+          >
+            <mat-icon>delete_outline</mat-icon>
+          </button>
+          <button
+            mat-button
+            aria-label="Delete"
+            (click)="deleteLibrary(row)"
+            class="actions mobile-actions"
+          >
+            Delete
+          </button>
+        </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="noRecords">
+        <mat-footer-cell
+          *matFooterCellDef
+          [attr.colspan]="displayedColumns?.length"
+        >
+          No Records Found
+        </mat-footer-cell>
+      </ng-container>
+
+      <mat-footer-row
+        *matFooterRowDef="['noRecords']"
+        [hidden]="dataSource?.data?.length"
+      ></mat-footer-row>
+
+      <ng-container matColumnDef="noFilteredRecords">
+        <mat-footer-cell
+          *matFooterCellDef
+          [attr.colspan]="displayedColumns?.length"
+        >
+          No records found matching "{{ input.value }}"
+        </mat-footer-cell>
+      </ng-container>
+
+      <mat-footer-row
+        *matFooterRowDef="['noFilteredRecords']"
+        [hidden]="!(input.value && dataSource?.filteredData?.length === 0)"
+      ></mat-footer-row>
+
+      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
+    </mat-table>
+
+    <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
+  </div>
+</div>

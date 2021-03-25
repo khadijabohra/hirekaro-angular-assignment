@@ -1,0 +1,77 @@
+@import "./../../../settings.scss";
+
+.logo {
+  height: 2em;
+}
+.nav-link:hover,
+.nav-link.active,
+.active {
+  // background-color: $primary;
+  // box-shadow: 0 0 5px rgba(255, 255, 255, 0.55);
+  color: white !important;
+  cursor: pointer;
+}
+.nav-item {
+  color: $primary;
+  &:hover {
+    background-color: $navbar;
+    color: white;
+  }
+}
+
+.container {
+  display: inline-block;
+  cursor: pointer;
+}
+
+.bar1,
+.bar2,
+.bar3 {
+  width: 25px;
+  height: 3px;
+  background-color: $primary;
+  margin: 6px 0;
+  transition: 0.4s;
+}
+
+.change .bar1 {
+  -webkit-transform: rotate(-45deg) translate(-8px, 7px);
+  transform: rotate(-45deg) translate(-8px, 7px);
+}
+
+.change .bar2 {
+  opacity: 0;
+}
+
+.change .bar3 {
+  -webkit-transform: rotate(45deg) translate(-5px, -5px);
+  transform: rotate(45deg) translate(-5px, -5px);
+}
+
+.user-details {
+  text-align: right;
+  margin-right: 1em;
+}
+
+.navbar-color,
+.nav-link {
+  background-color: $navbar;
+  color: $navbar-text-color;
+}
+.logout {
+  padding-left: 0;
+}
+.dashboardtabactive {
+  color: rgba(255, 255, 255, 1);
+}
+@media screen and (max-width: 992px) {
+  .user-details {
+    display: none;
+  }
+  .nav-link:hover,
+  .nav-link.active,
+  .active {
+    background-color: $primary;
+    padding-left: 15px;
+  }
+}

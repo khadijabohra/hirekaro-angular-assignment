@@ -1,0 +1,95 @@
+@import "./settings.scss";
+
+body {
+  margin: unset;
+  font-family: $font;
+  color: $text-color;
+  background-color: $body-bg;
+  font-size: 16px;
+  line-height: initial;
+
+  @include breakpoint(desktop) {
+    font-size: 16px;
+  }
+  @include breakpoint(laptop) {
+    font-size: 16px;
+  }
+  @include breakpoint(tablet) {
+    font-size: 14px;
+  }
+  @include breakpoint(phablet) {
+    font-size: 14px;
+  }
+  @include breakpoint(mobileonly) {
+    font-size: 12px;
+  }
+}
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+}
+.padding-unset {
+  padding: 0;
+}
+.title {
+  font-weight: 600;
+  font-size: 1.5em;
+}
+.errortxt {
+  color: red;
+  font-style: italic;
+  font-size: 0.8em;
+}
+
+.action-items {
+  justify-content: flex-end;
+  display: flex;
+  margin: 1em 0;
+  .action-btn + .submit {
+    background-color: $secondary;
+    &:hover {
+      background-color: $navbar;
+      color: white;
+    }
+  }
+  .action-btn {
+    margin-left: 1em;
+    color: black;
+    background-color: $primary;
+    &:hover:enabled,
+    &:active:enabled {
+      background-color: $navbar;
+      color: white;
+    }
+  }
+}
+
+.top-gap {
+  margin-top: 50px;
+}
+//-------------------------------------------------------------------- table styling
+
+.main-container {
+  padding: 20px;
+}
+table {
+  width: 100%;
+  font-family: inherit;
+}
+
+.mat-form-field {
+  font-size: 14px;
+  width: 100%;
+}
+
+th.mat-header-cell {
+  font-weight: 600;
+  color: $text-color-reverse;
+  background-color: $primary;
+  font-size: 1em;
+}
+.mat-sort-header-arrow {
+  color: $text-color-reverse;
+}

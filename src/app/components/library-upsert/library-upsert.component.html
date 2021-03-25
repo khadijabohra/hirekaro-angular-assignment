@@ -1,0 +1,18 @@
+<div class="main-container">
+  <div class="main-table">
+    <form class="example-form" [formGroup]="libraryForm">
+      <mat-form-field class="example-full-width">
+        <input formControlName="title" matInput placeholder="Title of the Book" />
+      </mat-form-field>
+
+      <mat-form-field class="example-full-width">
+        <input formControlName="author" matInput placeholder="Name of the author" />
+      </mat-form-field>
+      <mat-dialog-actions class="action-items">
+        <button mat-raised-button type="submit" class="mat-elevation-z8 action-btn " (click)="addLibrary()"
+          [disabled]="isSaving || !libraryForm.valid"> {{ isSaving ? "Saving
+          Library" : "Save" }}</button>
+      </mat-dialog-actions>
+    </form>
+  </div>
+</div>

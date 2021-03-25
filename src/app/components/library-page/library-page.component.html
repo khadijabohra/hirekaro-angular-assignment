@@ -1,0 +1,12 @@
+<app-header></app-header>
+<div class="container top-gap">
+  <div class="create-lib-section mat-elevation-z4">
+    <app-library-upsert></app-library-upsert>
+  </div>
+  <div class="library-list">
+    <app-library-list
+      [libraries]="libraries"
+      (deleteSuccess)="onDeleteSuccess($event)"
+    ></app-library-list>
+  </div>
+</div>

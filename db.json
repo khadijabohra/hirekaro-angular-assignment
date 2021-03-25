@@ -1,0 +1,36 @@
+{
+  "libraries": [
+    {
+      "title": "Working Title",
+      "author": "hello again",
+      "id": 10
+    },
+    {
+      "title": "testing again",
+      "author": "again",
+      "id": 11
+    },
+    {
+      "title": "working",
+      "author": "now",
+      "id": 12
+    },
+    {
+      "title": "a@pt.com",
+      "author": "Testing",
+      "id": 13
+    }
+  ],
+  "users": [
+    {
+      "id": 1,
+      "firstName": "khadija",
+      "lastName": "bohra"
+    }
+  ],
+  "groups": {
+    "id": 1,
+    "groupName": "something",
+    "users": []
+  }
+}

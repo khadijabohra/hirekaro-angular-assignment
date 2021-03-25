@@ -1,0 +1,57 @@
+<div class="main">
+  <div class="col-xl-7 col-lg-7 col-md-9 col-sm-8 col-xs-12 bg padding-unset">
+    <mat-card class="login-card mat-elevation-z8">
+      <form [formGroup]="loginForm">
+        <div class="form-group">
+          <mat-form-field>
+            <mat-label>Enter Email </mat-label>
+            <input matInput type="email" placeholder="Enter Email" formControlName="userId" />
+            <mat-hint>(Enter your Email ID)</mat-hint>
+            <mat-error *ngIf="
+                (isFormSubmitted || f.userId.touched) &&
+                f.userId.errors?.required
+              " class="errortxt">
+              Email is required</mat-error>
+            <mat-error *ngIf="
+                (isFormSubmitted || f.userId.touched) && f.userId.errors?.email
+              " class="errortxt">
+              Enter valid Email ID</mat-error>
+          </mat-form-field>
+        </div>
+
+        <!-- password Column -->
+        <div class="form-group">
+          <mat-form-field>
+            <mat-label>Enter Password </mat-label>
+            <input matInput type="password" placeholder="Enter Password" formControlName="password" />
+            <mat-hint>(Enter your Password)</mat-hint>
+            <mat-error *ngIf="
+                (isFormSubmitted || f.password.touched) &&
+                f.password.errors?.required
+              ">Password is required
+            </mat-error>
+
+            <mat-error *ngIf="
+                (isFormSubmitted || f.password.touched) &&
+                f.password.errors?.minlength
+              ">Password must contains at least 4 characters</mat-error>
+          </mat-form-field>
+        </div>
+
+        <!-- errors -->
+        <div class="errortxt loginerror">{{ errorMessage }}</div>
+
+        <mat-dialog-actions class="action-items">
+          <button mat-raised-button type="submit" class="mat-elevation-z8 action-btn sign-in "
+            [disabled]="f.userId.invalid || f.password.invalid || loading" (click)="dummyLogin()"> <i *ngIf="loading"
+              class="fa fa-spin fa-spinner pull-right" style="line-height: inherit"
+              aria-hidden="true"></i>Login</button>
+          <button mat-raised-button type="submit" class="mat-elevation-z8 action-btn sign-in "
+            (click)="signInWithGoogle()"> <i *ngIf="loading" class="fa fa-spin fa-spinner pull-right"
+              style="line-height: inherit" aria-hidden="true"></i>Sign In With Google</button>
+        </mat-dialog-actions>
+      </form>
+    </mat-card>
+  </div>
+  <div class="col-xl-5 col-lg-5 col-md-3 col-sm-4 col-xs-12 bg-side"></div>
+</div>

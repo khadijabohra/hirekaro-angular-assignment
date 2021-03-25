@@ -1,0 +1,44 @@
+
+$body-bg: rgba(248, 248, 248, 0.65);
+
+$navbar: #05325e;
+$card: #ffffff;
+$font: unquote("PT Sans, sans-serif");
+$text-color: #000000;
+$navbar-text-color:#A5D6FF;
+$text-color-reverse: #ffffff;
+
+$primary: #2699fb;
+$secondary: #1aff00;
+$warn: #fb2626;
+$btn: #2699fb;
+$btn-hover: #05325e;
+$btn-text: #ffffff;
+
+$btn-reverse: #1aff00;
+$btn-reverse-text: #000000;
+
+
+@mixin breakpoint($point) {
+    @if $point==desktop {
+      @media (min-width: 1200px) {
+        @content;
+      }
+    } @else if $point==laptop {
+      @media (min-width: 992px) and (max-width: 1119px) {
+        @content;
+      }
+    } @else if $point==tablet {
+      @media (min-width: 768px) and (max-width: 991px) {
+        @content;
+      }
+    } @else if $point==phablet {
+      @media (min-width: 576px) and (max-width: 767px) {
+        @content;
+      }
+    } @else if $point==mobileonly {
+      @media (min-width: 320px) and (max-width: 575px) {
+        @content;
+      }
+    }
+  }
